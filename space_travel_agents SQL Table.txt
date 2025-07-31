@@ -1,0 +1,57 @@
+DROP TABLE IF EXISTS space_travel_agents;
+CREATE TABLE space_travel_agents (
+    AgentID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    JobTitle VARCHAR(50),
+    DepartmentName VARCHAR(50),
+    ManagerName VARCHAR(100),
+    SpaceLicenseNumber VARCHAR(20),
+    YearsOfService INT,
+	AverageCustomerServiceRating FLOAT
+);
+
+INSERT INTO space_travel_agents (
+    AgentID,
+    FirstName,
+    LastName,
+    Email,
+    JobTitle,
+    DepartmentName,
+    ManagerName,
+    SpaceLicenseNumber,
+    YearsOfService,
+	AverageCustomerServiceRating
+
+) VALUES
+(1, 'Aurora', 'Tanaka', 'aurora.tanaka@astra2081.com', 'Senior Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-001', 12, 4.0),
+(2, 'Kai', 'Rodriguez', 'kai.rodriguez@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Lyra Chen', 'SL-2081-002', 7, 4.0),
+(3, 'Nova', 'Singh', 'nova.singh@astra2081.com', 'Senior Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-003', 15, 4.0),
+(4, 'Leo', 'Kim', 'leo.kim@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-004', 5, 4.0),
+(5, 'Vera', 'Nguyen', 'vera.nguyen@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Zane Holloway', 'SL-2081-005', 3, 3.9),
+(6, 'Soren', 'Baker', 'soren.baker@astra2081.com', 'Lead Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-006', 18, 4.6),
+(7, 'Mira', 'Patel', 'mira.patel@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-007', 4, 4.5),
+(8, 'Orion', 'Davis', 'orion.davis@astra2081.com', 'Senior Space Travel Agent', 'Luxury Voyages', 'Zane Holloway', 'SL-2081-008', 10, 4.4),
+(9, 'Luna', 'Martinez', 'luna.martinez@astra2081.com', 'Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-009', 6, 4.4),
+(10, 'Zara', 'Khan', 'zara.khan@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Lyra Chen', 'SL-2081-010', 2, 4.0),
+(11, 'Elias', 'Walker', 'elias.walker@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Lyra Chen', 'SL-2081-011', 5, 4.7),
+(12, 'Nia', 'Ramirez', 'nia.ramirez@astra2081.com', 'Senior Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-012', 14, 5.0),
+(13, 'Atlas', 'Foster', 'atlas.foster@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-013', 6, 4.3),
+(14, 'Selene', 'Ali', 'selene.ali@astra2081.com', 'Lead Space Travel Agent', 'Luxury Voyages', 'Zane Holloway', 'SL-2081-014', 16, 4.2),
+(15, 'Rhea', 'Chen', 'rhea.chen@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-015', 4, 4.1),
+(16, 'Zion', 'Parker', 'zion.parker@astra2081.com', 'Senior Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-016', 12, 4.0),
+(17, 'Lyra', 'Morgan', 'lyra.morgan@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Lyra Chen', 'SL-2081-017', 3, 3.3),
+(18, 'Dax', 'Reyes', 'dax.reyes@astra2081.com', 'Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-018', 8, 4.0),
+(19, 'Calypso', 'White', 'calypso.white@astra2081.com', 'Senior Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-019', 11, 4.7),
+(20, 'Orla', 'Patel', 'orla.patel@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Zane Holloway', 'SL-2081-020', 2, 4.4),
+(21, 'Arlo', 'Scott', 'arlo.scott@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-021', 7, 4.2),
+(22, 'Juno', 'Brooks', 'juno.brooks@astra2081.com', 'Lead Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-022', 17, 4.8),
+(23, 'Cassian', 'Ward', 'cassian.ward@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Lyra Chen', 'SL-2081-023', 4, 5.0),
+(24, 'Phoebe', 'Diaz', 'phoebe.diaz@astra2081.com', 'Senior Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-024', 13, 4.3),
+(25, 'Enzo', 'Nguyen', 'enzo.nguyen@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-025', 5, 4.4),
+(26, 'Vega', 'Price', 'vega.price@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Zane Holloway', 'SL-2081-026', 3, 3.8),
+(27, 'Ronan', 'Young', 'ronan.young@astra2081.com', 'Senior Space Travel Agent', 'Premium Bookings', 'Zane Holloway', 'SL-2081-027', 15, 4.0),
+(28, 'Mila', 'Reed', 'mila.reed@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-028', 6, 4.9),
+(29, 'Sage', 'Cooper', 'sage.cooper@astra2081.com', 'Space Travel Agent', 'Luxury Voyages', 'Zane Holloway', 'SL-2081-029', 4, 4.3),
+(30, 'Zuri', 'Bennett', 'zuri.bennett@astra2081.com', 'Space Travel Agent', 'Interplanetary Sales', 'Lyra Chen', 'SL-2081-030', 2, 3.7);
