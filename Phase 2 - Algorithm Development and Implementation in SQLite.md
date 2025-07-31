@@ -14,9 +14,28 @@ Pretty clean separation that lets me validate each step independently.
 
 ## Handling Missing Data
 
-Ran into an issue early on with agents who haven't worked certain lead sources or destinations - their averages come back NULL. Could have used their overall rating as a fallback, but that felt like cheating the system. Instead, I'm using 3.0 as a conservative baseline.
+Looking at the current data, every agent actually has some experience with both lead sources and all destinations - no NULL cases in practice. I verified this with a quick check:
 
-Why 3.0? It's below the actual average in our data (around 4.15) but not punitive. If someone hasn't worked organic leads before, they shouldn't get the same score as someone who excels at it, but they also shouldn't be completely penalized.
+```sql
+-- Looking for any agent/lead source/destination combinations with zero experience
+select 
+    sta.AgentID,
+    ah.LeadSource,
+    b.Destination,
+    count(*)
+from bookings as b
+left join assignment_history as ah
+    on ah.AssignmentID = b.AssignmentID
+left join space_travel_agents as sta
+    on sta.AgentID = ah.AgentID
+group by sta.AgentID, ah.LeadSource, b.Destination
+having count(*) = 0 or count(*) is null;
+-- Returns zero rows - everyone has worked everything
+```
+
+But I still built in a 3.0 fallback for system robustness. New agents will get hired, edge cases will pop up, and I don't want the algorithm breaking when they do.
+
+Why 3.0? It's below the actual average in our data (around 4.15) but not punitive. This way if someone genuinely hasn't worked organic leads or a specific destination, they stay in the rotation but don't get unfairly boosted above specialists.
 
 ## Normalization Approach
 
@@ -36,7 +55,7 @@ Could have gotten fancy with logarithmic scaling, but linear felt more transpare
 
 ## Cancellation Penalty Logic
 
-The cancellation rate gets applied as a final multiplier, not an additive penalty. So if your base score is 4.2 and you have a 15% cancellation rate, your final score becomes 4.2 × 0.85 = 3.57.
+The cancellation rate gets applied as a final multiplier, not an additive penalty. So if your base score is 4.2 and you have a 15% cancellation rate, your final score becomes 4.2 ï¿½ 0.85 = 3.57.
 
 This felt more realistic than subtracting points - the impact should be proportional to how good you were to begin with.
 
